@@ -167,9 +167,10 @@ exports.arraysAnswers = {
     // rotate through all the objects in the array
     for (i = 0; i < arr.length; i++){
       // if the current index matches the target
-      if (arr[i] === target)
+      if (arr[i] === target){
         // push the index value into the results array
         result.push(i)
+      }
     }
     // return the result array
     return result
