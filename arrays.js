@@ -126,16 +126,52 @@ exports.arraysAnswers = {
   },
 
   duplicates : function(arr) {
-    for ( i = 0; i < arr.length; i++){
-      if 
+    // function to sort the numbers in ascending order in array
+    function compareNumbers(a, b){
+      return a - b;
+    };
+    // use .sort with compareNumbers to sort array
+    arr.sort(compareNumbers);
+    // set an empty result array to put the duplicates into
+    var result = []
+    // loop through the provided array
+    for (i = 0; i < arr.length; i++){
+      // check if the array index object matches the next one
+      // and that the array index object is not already in the results array
+      if (arr[i] === arr[i + 1] && result.indexOf(arr[i]) === -1){
+        // if true, put the duplicate object into the results array
+        result.push(arr[i])
+      }
     }
+    // return the result array
+    return result
   },
 
   square : function(arr) {
-
+    // function to square a number
+    function square(num){
+      return num * num
+    }
+    // set a result var to equal each squared valued of arr
+    // use to map to iterate through each object in arr and perform
+    // function square on it
+    var result = arr.map(square)
+    // return the result array
+    return result
   },
 
   findAllOccurrences : function(arr, target) {
-
+    // return an array of index values where target is found
+    // set an empty result array
+    var result = []
+    // rotate through all the objects in the array
+    for (i = 0; i < arr.length; i++){
+      // if the current index matches the target
+      if (arr[i] === target)
+        // push the index value into the results array
+        result.push(i)
+    }
+    // return the result array
+    return result
   }
 };
