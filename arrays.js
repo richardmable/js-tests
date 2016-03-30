@@ -74,6 +74,10 @@ exports.arraysAnswers = {
   },
 
   prepend : function(arr, item) {
+    // or:
+    // arr.unshift(item);
+    // return arr;
+    
     // reverse the array
     arr.reverse();
     // push the item onto the end of the array
@@ -86,6 +90,10 @@ exports.arraysAnswers = {
   },
 
   curtail : function(arr) {
+    // or:
+    // arr.shift(arr);
+    // return arr;
+
     // reverse the array
     arr.reverse();
     // use .pop to remove the last element

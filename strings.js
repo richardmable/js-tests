@@ -27,36 +27,40 @@ exports.stringsAnswers = {
     return result;
   },
   wordWrap: function(str, cols) {
-    arr = str.split()
-    result = []
-    for (i = 0; i < arr.length; i++){
-      line_added = arr[i].toString();
-      line_added += "\n";
-      result.push(line_added)
+    // insertAt from http://stackoverflow.com/questions/4364881/inserting-string-at-position-x-of-another-string
+    String.prototype.insertAt=function(index, string) { 
+      return this.substr(0, index) + string + this.substr(index);
     }
-    alert(result)
-
-
+    // split into array based on spaces for each word
     // arr = str.split(" ");
-    // result = [];
-    // for (i = 0; i < arr.length; i++){
-    //   str_length = arr[i];
-    //   x = 1;
-    //   while (str_length.length <= cols){
-    //     str_length = str_length.concat(arr[i + x]);
-    //     // str_length = str_length.join("");
-    //     x++;
-    //   }
-    //   string_final = str_length.concat("\n")  
-    //   result.push(string_final)
-    // }
-    // formattedStr = result.join();
-    // alert(formattedStr);
-    // return formattedStr;
+    // loop through the string's length
+    for (i = 0; i < str.length; i++){
+      // if the current position is a multiple of the column
+      if (i % cols === 0){
+        // check if that position has a space
+        if (str.charAt(i) === " "){
+          // insert a line break
+          str.insertAt(i, "\n");
+          // search forwards and backwards for the space and find length
+          // if the word's length is greater than the columns
+        }else if ((str.indexOf(" ", i) - (str.lastIndexOf(" ", i))) > cols){
+          // find the last space and insert a break there
+          last_space = str.lastIndexOf(" ", i);
+          str.insertAt(last_space, "\n");
+        }
+      } 
+    }
+    alert(str);
+    // set the modified string the the result
+    result = str;
+    // return the result
+    return result;
   },
 
 
   reverseString: function(str) {
+    // or:
+    //
     // turn into array, reverse, then join back into string
     result = str.split("").reverse().join("")
     // return result
