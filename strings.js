@@ -50,7 +50,7 @@ exports.stringsAnswers = {
         }
       } 
     }
-    alert(str);
+    // alert(str);
     // set the modified string the the result
     result = str;
     // return the result
